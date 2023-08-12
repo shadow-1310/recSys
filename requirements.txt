@@ -6,9 +6,9 @@ streamlit
 joblib
 ensure
 seaborn
-sklearn
+scikit-learn
 scipy
 notebook
-types-PYAML
+types-PyYAML
 python-box
 -e .

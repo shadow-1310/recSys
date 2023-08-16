@@ -1,0 +1,38 @@
+books:
+  id: int64 
+  book_id: int64  
+  best_book_id: int64
+  work_id: int64
+  books_count: int64
+  isbn: object
+  isbn13: float64
+  authors: object
+  original_publication_year: float64
+  original_title: object
+  title: object
+  language_code: object
+  average_rating: float64
+  ratings_count: int64
+  work_ratings_count: int64
+  work_text_reviews_count: int64 
+  ratings_1: int64
+  ratings_2: int64
+  ratings_3: int64
+  ratings_4: int64
+  ratings_5: int64
+  image_url: object
+  small_image_url: object
+
+ratings:
+  book_id: int64
+  user_id: int64
+  rating: int64
+
+genre:
+  goodreads_book_id: int64
+  tag_id: int64
+  count: int64
+
+genre_meta:
+  tag_id: int64
+  tag_name: object

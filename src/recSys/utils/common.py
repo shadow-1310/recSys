@@ -1,13 +1,14 @@
 import os
 from box.exceptions import BoxValueError
 import yaml
-from mlProject import logger
+from recSys import logger
 import json
 import joblib
 from ensure import ensure_annotations
 from box import ConfigBox
 from pathlib import Path
 from typing import Any
+import pandas as pd
 
 
 
@@ -127,4 +128,33 @@ def get_size(path: Path) -> str:
 
 
 
+@ensure_annotations
+def validate_data(file_path :str, schema: ConfigBox) -> bool:
+    """validates data
 
+    Args:
+        file_path : path of the file to verify
+        schema: schema of the file written in schema.yaml
+
+    Returns:
+        bool: validation status (True or False)
+
+    """
+    data = pd.read_csv(file_path)
+    cols = list(data.columns)
+
+    status_cols = True
+    status_dtype = True
+
+    for col in schema.keys():
+        if col not in cols:
+            curr_status = False
+            status_cols = status_cols and curr_status
+            logger.warning(f"!!! for file {os.path.basename(file_path)} : {col} not present in data !!!")
+        if data[col].dtype != schema[col]:
+            curr_status = False
+            status_dtype = status_dtype and curr_status
+            logger.warning(f"!!! for file {os.path.basename(file_path)} : data mismatch for column {col} !!!")
+
+    status = status_cols and status_dtype
+    return status

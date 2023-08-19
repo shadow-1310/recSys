@@ -1,6 +1,6 @@
 from recSys.constants import *
 from recSys.utils.common import read_yaml, create_directories
-from recSys.entity.config_entity import DataIngestionConfig, DataValidationConfig
+from recSys.entity.config_entity import DataIngestionConfig, DataValidationConfig, DataTransformationConfig, ModelTrainConfig, PredictionConfig
 from recSys import logger
 
 class ConfigurationManager:
@@ -44,3 +44,44 @@ class ConfigurationManager:
                 schema = schema)
             
             return data_validation_config
+
+
+
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+            config = self.config.data_transformation
+
+            create_directories([config.root_dir])
+
+            data_transformation_config = DataTransformationConfig(
+                root_dir = config.root_dir,
+                unzip_data_dir = config.unzip_data_dir,
+                transformed_data_dir = config.transformed_data_dir,
+                schema = self.schema,
+                params = self.params)
+
+            
+            return data_transformation_config
+
+
+    def get_model_train_config(self) -> ModelTrainConfig:
+        config = self.config.model_trainer
+
+        create_directories([config.root_dir, config.model_path.simple.root_dir, config.model_path.simple.top_genre_root, config.model_path.content_based.root_dir])
+
+        model_train_config = ModelTrainConfig(
+                root_dir = config.root_dir,
+                train_data_path = config.train_data_path,
+                model_path = config.model_path,
+                schema = self.schema,
+                params = self.params,)
+
+        return model_train_config
+
+    def get_prediction_config(self):
+        config = self.config.model_prediction
+
+        prediction_config = PredictionConfig(
+                model_path = config,
+                params = self.params)
+
+        return prediction_config

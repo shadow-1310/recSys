@@ -158,3 +158,26 @@ def validate_data(file_path :str, schema: ConfigBox) -> bool:
 
     status = status_cols and status_dtype
     return status
+
+
+@ensure_annotations
+def clean_data(input_path: str, output_path: str, cols: list):
+    try:
+        logger.info(f"{input_path} accessed for cleaning and removing duplicates")
+        df = pd.read_csv(input_path)
+        df_temp = df.dropna(subset = cols)
+        logger.info(f"{input_path} cleaned for Null value in cols : {cols}")
+        print(df_temp.shape)
+
+        print("duplicate value: ", df_temp.duplicated().sum())
+        df_temp.drop_duplicates(inplace=True)
+        df_temp.reset_index(inplace=True, drop=True)
+        print("after removing duplicates: ", df_temp.shape)
+        df_temp.to_csv(output_path, index=False)
+        logger.info(f"{input_path} is cleaned and saved to {output_path}")
+
+                    
+    except Exception as e:
+        logger.exception(e)
+        raise e
+

@@ -1,1 +1,52 @@
-key: value
+trusted_user:
+  min_ratings: 3
+simple_recommender:
+  show_results: 20
+  ratings_cutoff: 0.95
+  top: 250
+  genre_cut_off: 0.85
+  genres:
+    - Art
+    - Biography 
+    - Business
+    - Chick Lit 
+    - Children's 
+    - Christian 
+    - Classics
+    - Comics
+    - Contemporary
+    - Cookbooks
+    - Crime 
+    - Ebooks 
+    - Fantasy
+    - Fiction
+    - Gay and Lesbian
+    - Graphic Novels
+    - Historical Fiction
+    - History
+    - Horror
+    - Humor and Comedy
+    - Manga 
+    - Memoir 
+    - Music
+    - Mystery
+    - Nonfiction 
+    - Paranormal
+    - Philosophy
+    - Poetry
+    - Psychology 
+    - Religion 
+    - Romance
+    - Science
+    - Science Fiction
+    - Self Help
+    - Suspense
+    - Spirituality
+    - Sports
+    - Thriller
+    - Travel 
+    - Young Adult
+content_based_recommender:
+  show_results: 20
+  similarity_weight: 50 # will extract top this number of similar books from the similarity matrix and then sort based on popularity
+  popularity_weight: 0.1 #can take value in range (0,1), 0 means we are giving less weightage to popularity while 1 means we are giving high weightage top popularity

@@ -27,9 +27,21 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(159,208,158,1) 33%, r
 
     <div class="container">
         <div class="row">
-            <div class="col-md-11">
-                <h1 class="text-white" style="font-size:50px">Popular Books</h1>
+            <div class="col-md-12">
+                <h1 class="text-white" style="font-size:50px">Recommend Books</h1>
+                <form action="/recommend_genre" method="post">
+                    <!-- <input name="user_input" type="text" class="form-control"><br> -->
+                    <label for="exampleDataList" class="form-label">Enter your Genre name</label>
+                    <input class="form-control" list="datalistOptions" id="exampleDataList" name="user_input" placeholder="Type to search...">
+                    <datalist id="datalistOptions">
+                        {% for i in options %}
+                    <option value="{{ i }}">
+                        {% endfor %}
+                    </datalist>
+                    <input type="submit" class="btn btn-lg btn-warning">
+                </form>
             </div>
+
 
             {% for i in range(title|length) %}
 
@@ -45,9 +57,6 @@ background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(159,208,158,1) 33%, r
                 </div>
 
             {% endfor %}
-
-
-
 
         </div>
     </div>

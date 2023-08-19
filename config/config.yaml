@@ -71,5 +71,5 @@ model_prediction:
   content_based:
     books: artifacts/data_transformation/clean_books.csv
     model_path: artifacts/model_trainer/content_based_recommender/sim_matrix.joblib
-
+    trusted_user:  artifacts/data_transformation/trusted_user.csv
 

@@ -5,58 +5,58 @@ from recSys.pipeline.stage3_data_transformation import DataTransformationPipelin
 from recSys.pipeline.stage4_model_trainer import ModelTrainerPipeline
 from recSys.pipeline.prediction import PredictionPipeline
 
-# STAGE_NAME = "DATA Ingestion Stage"
+STAGE_NAME = "DATA Ingestion Stage"
 
-# try:
-#     logger.info(f"<<<<< {STAGE_NAME} started >>>>>")
-#     obj = DataIngestionPipeline()
-#     obj.main()
-#     logger.info(f">>>>>> {STAGE_NAME} completed successfully <<<<<<")
+try:
+    logger.info(f"<<<<< {STAGE_NAME} started >>>>>")
+    obj = DataIngestionPipeline()
+    obj.main()
+    logger.info(f">>>>>> {STAGE_NAME} completed successfully <<<<<<")
 
-# except Exception as e:
-#     logger.exception(e)
-#     raise e
-
-
-
-# STAGE_NAME = "Data Validation Stage"
-
-# try:
-#     logger.info(f"<<<<< {STAGE_NAME} started >>>>>")
-#     obj = DataValidationPipeline()
-#     obj.main()
-#     logger.info(f">>>>>> {STAGE_NAME} completed successfully <<<<<<")
-
-# except Exception as e:
-#     logger.exception(e)
-#     raise e
-
-
-# STAGE_NAME = "Data Transformation Stage"
-
-# try:
-#     logger.info(f"<<<<< {STAGE_NAME} started >>>>>")
-#     obj = DataTransformationPipeline()
-#     obj.main()
-#     logger.info(f">>>>>> {STAGE_NAME} completed successfully <<<<<<")
-
-# except Exception as e:
-#     logger.exception(e)
-#     raise e
+except Exception as e:
+    logger.exception(e)
+    raise e
 
 
 
-# STAGE_NAME = "Model Training Stage"
+STAGE_NAME = "Data Validation Stage"
 
-# try:
-#     logger.info(f"<<<<< {STAGE_NAME} started >>>>>")
-#     obj = ModelTrainerPipeline()
-#     obj.main()
-#     logger.info(f">>>>>> {STAGE_NAME} completed successfully <<<<<<")
+try:
+    logger.info(f"<<<<< {STAGE_NAME} started >>>>>")
+    obj = DataValidationPipeline()
+    obj.main()
+    logger.info(f">>>>>> {STAGE_NAME} completed successfully <<<<<<")
 
-# except Exception as e:
-#     logger.exception(e)
-#     raise e
+except Exception as e:
+    logger.exception(e)
+    raise e
+
+
+STAGE_NAME = "Data Transformation Stage"
+
+try:
+    logger.info(f"<<<<< {STAGE_NAME} started >>>>>")
+    obj = DataTransformationPipeline()
+    obj.main()
+    logger.info(f">>>>>> {STAGE_NAME} completed successfully <<<<<<")
+
+except Exception as e:
+    logger.exception(e)
+    raise e
+
+
+
+STAGE_NAME = "Model Training Stage"
+
+try:
+    logger.info(f"<<<<< {STAGE_NAME} started >>>>>")
+    obj = ModelTrainerPipeline()
+    obj.main()
+    logger.info(f">>>>>> {STAGE_NAME} completed successfully <<<<<<")
+
+except Exception as e:
+    logger.exception(e)
+    raise e
 
 
 

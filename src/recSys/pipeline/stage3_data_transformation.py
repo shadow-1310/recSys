@@ -15,6 +15,7 @@ class DataTransformationPipeline:
         
         data_transformation = DataTransformation(config = data_transformation_config)
         data_transformation.clean_data()
+        data_transformation.get_trusted_users()
 
 
 

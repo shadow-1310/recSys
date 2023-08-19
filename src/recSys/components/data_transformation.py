@@ -2,6 +2,7 @@ import os
 from recSys import logger
 from recSys.entity.config_entity import DataTransformationConfig
 from recSys.utils.common import clean_data
+import pandas as pd
 
 
 class DataTransformation:
@@ -47,8 +48,8 @@ class DataTransformation:
     def get_trusted_users(self):
         config = self.config
 
-        input_path_books = config.transformed_data_dir.clean_books
-        input_path_ratings = config.transformed_data_dir.clean_ratings
+        input_path_books = config.transformed_data_dir.books
+        input_path_ratings = config.transformed_data_dir.ratings
         output_path = config.transformed_data_dir.trusted_user
         thresh = self.params.trusted_user.min_ratings
 
